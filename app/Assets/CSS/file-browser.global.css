@@ -1,0 +1,35 @@
+ul.menu {
+    list-style: none
+}
+
+ul.menu li {
+    padding: 0.25rem;
+    border: 2px
+}
+
+li.dir {
+    font-weight: 600
+}
+
+li.file {
+    color:grey;
+}
+
+li.file .available{
+    color: green
+}
+
+ul.menu li:hover {
+    background-color: lightgrey
+}
+
+.horizontal {
+    display: inline-block
+}
+
+.file-browser {
+    width: 25%;
+    overflow: scroll;
+    float: left;
+    height: 1600px;
+}
