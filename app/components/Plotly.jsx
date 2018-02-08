@@ -56,7 +56,7 @@ class Plotly extends Component {
 
     render() {
         return (
-            <div>
+            <div className="plot-container">
                 {this.state.json 
                 ? <Plot data={this.state.json.data} layout={this.state.json.layout}/>
                 : <div>

@@ -14,7 +14,9 @@ class FileBrowser extends Component {
             .expandCallback
             .bind(this)
 
-        const rootNode = new DirectoryTreeNode(null, props.startingDir ? props.startingDir : os.homedir())
+        const rootNode = new DirectoryTreeNode(null, props.startingDir
+            ? props.startingDir
+            : os.homedir())
         rootNode.expand(this.expandCallback)
 
         this.state = {
@@ -47,18 +49,18 @@ class FileBrowser extends Component {
         child.expand(this.expandCallback)
 
         //Set the current node to the child node
-        this.setState({
-            currentNode: child
-        })
+        this.setState({currentNode: child})
     }
 
     selectedFile = (node) => {
         console.log("Selected file: ", node.dir)
         // Ensure is file
-        if(fs.statSync(node.dir).isFile()){
+        if (fs.statSync(node.dir).isFile()) {
             // Ensure file extension is .json
-            if(path.extname(node.dir) == '.json'){
-                this.props.onSelectJSONFile(node.dir)
+            if (path.extname(node.dir) == '.json') {
+                this
+                    .props
+                    .onSelectJSONFile(node.dir)
             } else {
                 console.log("File is not .json!")
             }
@@ -89,13 +91,17 @@ class FileBrowser extends Component {
                                         {child.name}
                                     </li>
                                 } else {
-                                    return <li key={index} className="file" onClick={() => this.selectedFile(child)}>
+                                    return <li
+                                        key={index}
+                                        className={"file" + (path.extname(child.dir) == '.json'
+                                        ? " available"
+                                        : null)}
+                                        onClick={() => this.selectedFile(child)}>
                                         {child.name}
                                     </li>
                                 }
                             })}
                     </ul>
-
                 </div>
             )
 

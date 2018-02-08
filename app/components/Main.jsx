@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import FileBrowser from './FileBrowser'
 import Plotly from './Plotly'
-
+import SplitPane from 'react-split-pane'
+import "../Assets/CSS/main.global.css"
+    
 class Main extends Component {
     constructor(props){
         super(props)
@@ -23,8 +25,11 @@ class Main extends Component {
     render() { 
         return (
             <div>
-                <FileBrowser onSelectJSONFile={this.didSelectJSONFile}/>
-                <Plotly jsonFilePath={this.state.selectedFile}/>
+                <SplitPane split="vertical" minSize={100} defaultSize={200}>
+                    <FileBrowser onSelectJSONFile={this.didSelectJSONFile}/>
+                    <Plotly jsonFilePath={this.state.selectedFile}/>
+                </SplitPane>
+                
             </div>
         )
     }

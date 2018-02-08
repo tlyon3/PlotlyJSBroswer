@@ -3,7 +3,6 @@ ul.menu {
 }
 
 ul.menu li {
-    padding: 0.25rem;
     border: 2px
 }
 
@@ -15,8 +14,8 @@ li.file {
     color:grey;
 }
 
-li.file .available{
-    color: green
+li.available {
+    color: green;
 }
 
 ul.menu li:hover {
@@ -25,11 +24,4 @@ ul.menu li:hover {
 
 .horizontal {
     display: inline-block
-}
-
-.file-browser {
-    width: 25%;
-    overflow: scroll;
-    float: left;
-    height: 1600px;
 }
